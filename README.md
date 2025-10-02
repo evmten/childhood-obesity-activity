@@ -19,7 +19,7 @@ python .\scripts\transform_merge.py `
   --account childactivityobesity `
   --container activity-obesity-data `
   --write-parquet
-
+```
 # Bash
 ```bash
 export ADLS_SAS='?sv=...'
@@ -27,3 +27,4 @@ python scripts/transform_merge.py \
   --account childactivityobesity \
   --container activity-obesity-data \
   --write-parquet
+```
