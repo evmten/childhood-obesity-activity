@@ -1,0 +1,4 @@
+pandas
+azure-storage-blob
+adlfs
+pyarrow-21.0.0
