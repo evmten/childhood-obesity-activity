@@ -84,12 +84,14 @@ def read_measure(
     ages: List[int],
     prefix: str,
     required_cols: Tuple[str, ...] = ("COUNTRY", "SEX", "YEAR", "VALUE"),
+    storage_options: dict | None = None,
 ) -> pd.DataFrame:
     """
     Read + stack one measure (activity OR obesity) across ages.
     """
     dfs: List[pd.DataFrame] = []
-    storage_options = {"account_name": fs.account_name, "sas_token": fs.sas_token}
+    if storage_options is None:
+        storage_options = {"account_name": args.account, "sas_token": args.sas}
 
     for age in ages:
         raw_name = f"{prefix} {age}-year-olds.csv"
@@ -155,13 +157,18 @@ def main() -> int:
     keys = ["COUNTRY", "AGE", "SEX", "YEAR"]
 
     # Read & rename processed layers
-    df_activity = read_measure(fs, args.container, args.ages, args.activity_prefix).rename(
-        columns={"VALUE": "ACTIVITY_VAL"}
-    )
-    df_obesity = read_measure(fs, args.container, args.ages, args.obesity_prefix).rename(
-        columns={"VALUE": "OBESITY_VAL"}
-    )
+    opts = {"account_name": args.account, "sas_token": args.sas}
 
+    df_activity = read_measure(
+        fs, args.container, args.ages, args.activity_prefix,
+        storage_options=opts
+    ).rename(columns={"VALUE": "ACTIVITY_VAL"})
+
+    df_obesity = read_measure(
+        fs, args.container, args.ages, args.obesity_prefix,
+        storage_options=opts
+    ).rename(columns={"VALUE": "OBESITY_VAL"})
+        
     LOG.info(f"Row counts: activity={len(df_activity)}, obesity={len(df_obesity)}")
 
     # Validate key hygiene
@@ -181,8 +188,9 @@ def main() -> int:
     local_dir.mkdir(parents=True, exist_ok=True)
     (df_merged
         .to_csv(local_dir / "df_merged.csv", index=False))
-    # If you want both formats:
-    df_merged.to_parquet(local_dir / "df_merged.parquet", index=False)
+    LOG.info(f"Wrote local snapshot to {local_dir}/df_merged.csv")
+    if args.write_parquet:
+        df_merged.to_parquet(local_dir / "df_merged.parquet", index=False)
 
     # Write processed layers (renamed already)
     act_csv = abfs_path(args.container, "processed", "activity_merged.csv")
