@@ -89,16 +89,15 @@ def read_measure(
     """
     Read + stack one measure (activity OR obesity) across ages.
     """
+
     dfs: List[pd.DataFrame] = []
-    if storage_options is None:
-        storage_options = {"account_name": args.account, "sas_token": args.sas}
 
     for age in ages:
         raw_name = f"{prefix} {age}-year-olds.csv"
         ns_path = noscheme_path(container, "raw", raw_name)      # for abfs.open()
         scheme_path = abfs_path(container, "raw", raw_name)      # for pandas
 
-        with fs.open(ns_path, "r") as f:
+        with fs.open(ns_path, "r", encoding="utf-8-sig") as f:
             lines = f.readlines()
 
         header_idx, data_rows = find_table_bounds(lines, required_cols)
@@ -196,8 +195,6 @@ def main() -> int:
     act_csv = abfs_path(args.container, "processed", "activity_merged.csv")
     obe_csv = abfs_path(args.container, "processed", "obesity_merged.csv")
     cur_csv = abfs_path(args.container, "curated",  "df_merged.csv")
-
-    opts = {"account_name": args.account, "sas_token": args.sas}
 
     df_activity.to_csv(act_csv, index=False, storage_options=opts)
     df_obesity.to_csv (obe_csv, index=False, storage_options=opts)
