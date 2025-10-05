@@ -28,3 +28,14 @@ python scripts/transform_merge.py \
   --container activity-obesity-data \
   --write-parquet
 ```
+
+## Qlik Analytics
+
+**Trends**  
+![Trends](screenshots/Trends.gif)
+
+**Comparison**  
+![Comparison](screenshots/Comparison.gif)
+
+**Correlation**  
+![Comparison](screenshots/Correlation.gif)
