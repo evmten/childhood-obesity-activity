@@ -1,4 +1,4 @@
-```md
+
 # Runbook — Local & (Optional) ADLS
 
 ## Prerequisites
@@ -20,7 +20,7 @@ python .\scripts\transform_merge.py `
   --account childactivityobesity `
   --container activity-obesity-data `
   --dry-run
-
+```
 **Bash**
 ```bash
 export ADLS_SAS='?sv=...'
@@ -28,7 +28,7 @@ python scripts/transform_merge.py \
   --account childactivityobesity \
   --container activity-obesity-data \
   --dry-run
-
+```
 
 ## Full run (write processed/curated to ADLS, plus Parquet)
 **PowerShell**
@@ -38,7 +38,7 @@ python .\scripts\transform_merge.py `
   --account childactivityobesity `
   --container activity-obesity-data `
   --write-parquet
-
+```
 **Bash**
 ```bash
 export ADLS_SAS='?sv=...'
@@ -46,7 +46,7 @@ python scripts/transform_merge.py \
   --account childactivityobesity \
   --container activity-obesity-data \
   --write-parquet
-
+```
 
 ## Local snapshot
 **PowerShell**
