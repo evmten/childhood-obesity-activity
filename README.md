@@ -66,7 +66,7 @@ Give a clean, apples-to-apples view of **child physical activity** vs **overweig
 ### 2) Comparison (bar)
 **Answers:** Which countries have the **largest positive/negative gap** (Activity − Obesity) for the selected cohort?
 
-<img src="screenshots/Comparison.gif" width="700" alt="Comparison — Gap by Country" />
+<img src="screenshots/Comparison.png" width="700" alt="Comparison — Gap by Country" />
 
 **How to read/use**
 - Fix **AGE**, **SEX**, and **YEAR**, then sort bars by the **Gap (pp)** measure (descending).
@@ -82,7 +82,7 @@ Give a clean, apples-to-apples view of **child physical activity** vs **overweig
 ### 3) Correlation (scatter)
 **Answers:** How strongly is **Activity %** related to **Obesity %**?
 
-<img src="screenshots/Correlation.gif" width="700" alt="Correlation — Activity vs Obesity" />
+<img src="screenshots/Correlation.png" width="700" alt="Correlation — Activity vs Obesity" />
 
 **How to read/use**
 - X-axis: **Avg Activity %**; Y-axis: **Avg Obesity %**.
