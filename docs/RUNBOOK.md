@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 50f01028344249488387e0142b43f819104d6177
 # Runbook — Local & (Optional) ADLS
 
 ## Prerequisites
