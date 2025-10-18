@@ -94,8 +94,8 @@ def read_measure(
 
     for age in ages:
         raw_name = f"{prefix} {age}-year-olds.csv"
-        ns_path = noscheme_path(container, "raw", raw_name)      # for abfs.open()
-        scheme_path = abfs_path(container, "raw", raw_name)      # for pandas
+        ns_path = noscheme_path(container, "raw", raw_name)
+        scheme_path = abfs_path(container, "raw", raw_name)
 
         with fs.open(ns_path, "r", encoding="utf-8-sig") as f:
             lines = f.readlines()
@@ -109,8 +109,8 @@ def read_measure(
 
         df = pd.read_csv(
             scheme_path,
-            skiprows=header_idx,          # header row is first row seen
-            nrows=data_rows,              # exact number of data rows
+            skiprows=header_idx, 
+            nrows=data_rows,          
             storage_options=storage_options,
         )
 
