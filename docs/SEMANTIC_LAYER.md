@@ -1,4 +1,3 @@
-```md
 # Semantic Layer
 
 ## Grain & Keys
