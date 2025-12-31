@@ -2,7 +2,7 @@
 
 **Goal:** Build a small, reproducible BI pipeline about childhood obesity and physical activity using a curated dataset and a clear semantic layer.
 
-## Quickstart (no cloud / no secrets)
+## Quickstart
 1. Use the frozen snapshot in this repo: `data/curated/df_merged.csv`.
 2. In **Qlik Cloud** → Add data → **DataFiles** → upload `df_merged.csv`.
 3. Build 3 sheets (Trends, Comparison, Correlation) with filters (AGE, YEAR, SEX, COUNTRY).
