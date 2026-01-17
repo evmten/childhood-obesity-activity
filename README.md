@@ -1,4 +1,4 @@
-# Childhood Obesity & Physical Activity (WHO) — BI Pipeline
+# Childhood Obesity & Activity
 
 **Goal:** Build a small, reproducible BI pipeline about childhood obesity and physical activity using a curated dataset and a clear semantic layer.
 
