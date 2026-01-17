@@ -1,4 +1,4 @@
-# Childhood Obesity & Activity
+# Childhood Obesity & Activity BI Dashboard
 
 **Goal:** Build a small, reproducible BI pipeline about childhood obesity and physical activity using a curated dataset and a clear semantic layer.
 
