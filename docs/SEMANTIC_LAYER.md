@@ -27,7 +27,7 @@
 - Measures numeric; expected range `[0, 100]`.
 - Sanity counts observed: activity=438, obesity=566, curated(inner)=438.
 
-## Qlik Master Items (suggested)
+## Qlik Master Items
 **Master Dimensions:** COUNTRY, AGE, SEX, YEAR  
 **Master Measures:**
 - Avg Activity % → `Avg([ACTIVITY_VAL])`
